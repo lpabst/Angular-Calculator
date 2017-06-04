@@ -86,7 +86,7 @@ app.use(session({
 
 
 // CONNECTIONS //
-var port = config.PORT;
-app.listen(port, function() {
-	console.log('Listening on port ' + port);
+// var port = config.PORT;
+app.listen(8000, function() {
+	console.log('Listening on port 8000');
 });
