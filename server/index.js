@@ -22,66 +22,66 @@ app.use(session({
 
 
 // MASSIVE AND DB SETUP //
-var massiveUri = config.MASSIVE_URI;
-var massiveServer = massive.connectSync({
-	connectionString: massiveUri
-});
-app.set('db', massiveServer);
-var db = app.get('db');
+// var massiveUri = config.MASSIVE_URI;
+// var massiveServer = massive.connectSync({
+// 	connectionString: massiveUri
+// });
+// app.set('db', massiveServer);
+// var db = app.get('db');
 
-var dbSetup = require('./services/dbSetup');
-dbSetup.run();
+// var dbSetup = require('./services/dbSetup');
+// dbSetup.run();
 
 
 
 // SESSION AND PASSPORT //
-var passport = require('./services/passport');
-app.use(passport.initialize());
-app.use(passport.session());
+// var passport = require('./services/passport');
+// app.use(passport.initialize());
+// app.use(passport.session());
 
 // PASSPORT ENDPOINTS //
-app.get('/auth', function (req, res, next) {
-	// Is a different state required for callback?
-	if (req.query.state)
-		req.session.state = req.query.state;
+// app.get('/auth', function (req, res, next) {
+// 	// Is a different state required for callback?
+// 	if (req.query.state)
+// 		req.session.state = req.query.state;
 
-  passport.authenticate('auth0')(req, res, next);
-});
-app.get('/auth/callback', function(req, res, next) {
-	// Check where the user should be redirected
-	var state = 'profile';
-	if (req.session.state)
-		state = req.session.state;
+//   passport.authenticate('auth0')(req, res, next);
+// });
+// app.get('/auth/callback', function(req, res, next) {
+// 	// Check where the user should be redirected
+// 	var state = 'profile';
+// 	if (req.session.state)
+// 		state = req.session.state;
 
-	req.session.state = null;
+// 	req.session.state = null;
 
-	passport.authenticate('auth0', {
-	  successRedirect: '/#!/' + state,
-	  failureRedirect: '/#!/'
-	})(req, res, next);
-});
+// 	passport.authenticate('auth0', {
+// 	  successRedirect: '/#!/' + state,
+// 	  failureRedirect: '/#!/'
+// 	})(req, res, next);
+// });
 
-app.get('/api/logout', function(req, res, next) {
-	req.logout();
-	return res.status(200)
-		.send('logged out');
-});
+// app.get('/api/logout', function(req, res, next) {
+// 	req.logout();
+// 	return res.status(200)
+// 		.send('logged out');
+// });
 
 // POLICIES //
-var isAuthed = function(req, res, next) {
-	if (!req.isAuthenticated()) return res.status(401)
-		.send();
-	return next();
-};
+// var isAuthed = function(req, res, next) {
+// 	if (!req.isAuthenticated()) return res.status(401)
+// 		.send();
+// 	return next();
+// };
 
 
 
-// CONTROLLERS //
-var userCtrl = require('./controllers/userCtrl');
+// // CONTROLLERS //
+// var userCtrl = require('./controllers/userCtrl');
 
-// USER ENDPOINTS //
-app.get('/api/me', userCtrl.me);
-app.put('/api/user/current', isAuthed, userCtrl.updateCurrent);
+// // USER ENDPOINTS //
+// app.get('/api/me', userCtrl.me);
+// app.put('/api/user/current', isAuthed, userCtrl.updateCurrent);
 
 
 
