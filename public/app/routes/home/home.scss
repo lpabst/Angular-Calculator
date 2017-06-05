@@ -12,5 +12,60 @@
         left: calc(50% - 150px);
         top: calc(50% - 225px);
         background: #333;
+
+        .display_area{
+            width: 80%;
+            height: 60px;   
+            position: absolute;
+            left: 10%;
+            top: 30px;
+            background: gray;
+            box-shadow: inset 2px 2px 6px black;
+            font-size: 34px;
+            font-weight: bold;
+            text-align: right;
+            box-sizing: border-box;
+            padding: 12px 4px 0px 0px;
+        }
+
+        .buttons{
+            width:90%;
+            height: 350px;
+            position: absolute;
+            top: 100px;
+            left: 5%;
+
+            ul{
+                width: 100%;
+                position: absolute;
+                padding: 0 0;
+                position: absolute;
+                bottom: 0;
+
+                li{
+                    width: 60px;
+                    height: 45px;
+                    background: #999;
+                    box-shadow: 2px 2px 4px black;
+                    display: inline-block;
+                    text-decoration: none;
+                    margin: 4px 0px 0px 3px;
+                    cursor: pointer;
+                    font-size: 19px;
+                    font-weight: bold;
+                    text-align: center;
+                    box-sizing: border-box;
+                    padding-top: 12px;
+                }
+
+                li:hover{
+                    background: #bbb;
+                }
+
+                #equal_sign:hover{
+                    background: #a22;
+                }
+            }
+        }
     }
 }
