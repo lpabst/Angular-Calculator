@@ -10,8 +10,8 @@
         height: 450px;
         position: absolute;
         left: calc(50% - 150px);
-        top: calc(50% - 225px);
-        background: #333;
+        top: calc(50% - 235px);
+        background: #444;
 
         .display_area{
             width: 80%;
@@ -19,8 +19,8 @@
             position: absolute;
             left: 10%;
             top: 30px;
-            background: gray;
-            box-shadow: inset 2px 2px 6px black;
+            background: #ddd;
+            box-shadow: inset 3px 3px 6px black;
             font-size: 34px;
             font-weight: bold;
             text-align: right;
@@ -45,7 +45,7 @@
                 li{
                     width: 60px;
                     height: 45px;
-                    background: #999;
+                    background: #bbb;
                     box-shadow: 2px 2px 4px black;
                     display: inline-block;
                     text-decoration: none;
@@ -67,5 +67,40 @@
                 }
             }
         }
+    }
+
+    .calculator_right_side{
+        width: 10px;
+        height: 478px;
+        position: absolute;
+        overflow: hidden;
+        left: calc(50% + 150px);
+        top: calc(50% - 235px);
+
+        .calc_right_side_rotated{
+            width: 430px;
+            height: 225px;
+            transform: rotate(60deg);
+            transform-origin: top left;
+            background: #222;
+         }
+    }
+
+    .calculator_bottom_side{
+        width: 350px;
+        height: 17px;
+        position: absolute;
+        overflow: hidden;
+        left: calc(50% - 150px);
+        top: calc(50% + 215px);
+
+        .calc_bottom_side_rotated{
+            width: 260px;
+            height: 300px;
+            transform: rotate(-30deg);
+            transform-origin: top left;
+            background: #222;
+        }
+
     }
 }
