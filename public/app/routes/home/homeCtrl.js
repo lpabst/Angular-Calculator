@@ -11,6 +11,9 @@ angular.module("app")
       arr = $scope.display.split('');
       arr.pop();
       $scope.display = arr.join('');
+      if ($scope.display == ''){
+        $scope.display = '0';
+      }
     }
 
     $scope.addToDisplay = function(str){
@@ -21,11 +24,20 @@ angular.module("app")
       }
     }
 
-    $scope.equals = function(){
-      $scope.display = Number($scope.display);
+    $scope.positiveNegative = function(){
+      if (!($scope.display == '0')){
+        arr = $scope.display.split('');
+        if(arr[0] == '-'){
+          arr.shift();
+        }else{
+          arr.unshift('-');
+        }
+        $scope.display = arr.join('');
+      }
     }
 
-
-
+    $scope.equals = function(){
+      $scope.display = eval($scope.display);
+    }
 
   });
